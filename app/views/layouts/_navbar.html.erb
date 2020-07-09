@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="../event.png">
+    <style>
+a:link {
+  color: orange;
+  background-color: transparent;
+  text-decoration: orange;
+}
+a:visited {
+  color: orange;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: orange;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+  </head>
+  <body  style="margin:0 ;padding:0;">
+    <nav >
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo" >𝓣𝓮𝓬𝓱𝓜𝓮𝓮𝓽𝓼</label>
+      <ul>
+        <li >
+          
+          <%= link_to "ᴏᴠᴇʀᴠɪᴇᴡ", root_path %><a href="/" ></a>
+        </li>
+        <li>
+          <%= link_to "sᴘᴇᴀᴋᴇʀs", static_page_speakers_path %><a href="/"></a>
+        </li>
+        <li>
+          <%= link_to "venue", static_page_venue_path %><a href="/"></a>
+        </li>
+        <li>
+          <% if !user_signed_in?%>
+          <p class="sign_in"><%= link_to "ʟᴏɢɪɴ", new_user_session_path %><a href="/"></a>
+          <% end %>
+           <% if user_signed_in?%>
+             <%= link_to "ᴇᴠᴇɴᴛs", static_page_pastevents_path %>&nbsp;
+              <%= link_to 'ᴇᴅɪᴛ ᴘʀᴏꜰɪʟᴇ', edit_user_registration_path %>&nbsp;
+           <%= link_to('ʟᴏɢᴏᴜᴛ', destroy_user_session_path, :method => :delete) %><a href="/"></a>
+           
+           <% end %>
+
+        </li>
+        <li>
+          <%= link_to "sɪɢɴᴜᴘ", new_user_registration_path %><a href="/"></a>
+
+        </li>
+         
+       
+        
+
+</ul>
+ 
+</nav>
+
+    
+  </body>
+</html>
